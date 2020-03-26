@@ -26,6 +26,20 @@ namespace APIProject
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(options =>
+            {
+                options.AddPolicy("AllowOrigin", builder => builder.AllowAnyOrigin());
+
+
+                //options.AddPolicy("NewCors",
+                //    builder =>
+                //    {
+                //        builder.WithOrigins("http://example.com",
+                //                        "http://myDomain.com",
+                //                        "http://localhost:4200");
+
+                //    });
+            });
             services.AddControllers();
 
             services.AddScoped<IEmployeeRepo, EmployeeService>();
@@ -38,6 +52,8 @@ namespace APIProject
             {
                 app.UseDeveloperExceptionPage();
             }
+
+
 
             app.UseRouting();
 

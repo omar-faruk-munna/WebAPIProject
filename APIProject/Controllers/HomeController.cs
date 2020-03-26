@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace APIProject.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     [ApiController]
     public class HomeController : ControllerBase
     {
@@ -28,11 +28,12 @@ namespace APIProject.Controllers
         }
 
         // GET: api/Home/5
-        [HttpGet("{id}", Name = "Get")]
-        public string Get(int id)
-        {
-            return "value";
-        }
+        //[HttpGet]
+        //[Route("get-sample")]
+        //public string Get(int id)
+        //{
+        //    return "value";
+        //}
 
         // POST: api/Home
         [HttpPost]
